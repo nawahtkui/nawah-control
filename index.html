@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nawah Control — تحكّم بالتجارة</title>
+  <title>Nawah Control — تحكّم بالتجارة الإلكترونية النقدية</title>
 
   <style>
     body {
@@ -13,67 +13,83 @@
       background: #fff;
       line-height: 1.7;
     }
+
     section {
       padding: 80px 20px;
     }
+
     .container {
       max-width: 1100px;
       margin: auto;
     }
+
     h1, h2 {
       font-weight: 700;
       margin-bottom: 20px;
     }
+
     h1 {
       font-size: 2.5rem;
       line-height: 1.3;
     }
+
     h2 {
       font-size: 2rem;
     }
+
     p {
       font-size: 1.1rem;
       color: #333;
     }
+
     ul {
       padding: 0;
       list-style: none;
     }
+
     li {
       margin-bottom: 12px;
       font-size: 1.1rem;
     }
+
     .hero {
       background: #000;
       color: #fff;
       text-align: center;
     }
+
     .hero p {
       color: #ddd;
     }
+
     .highlight {
       color: #b00020;
       font-weight: 600;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
+
     .box {
       border: 1px solid #eee;
       border-radius: 10px;
       padding: 20px;
       background: #fafafa;
     }
+
     .dark {
       background: #f5f5f5;
     }
+
     .cta {
       background: #000;
       color: #fff;
       text-align: center;
     }
+
     footer {
       padding: 30px;
       text-align: center;
@@ -89,6 +105,7 @@
       flex-direction: column;
       gap: 12px;
     }
+
     .demo-form input,
     .demo-form select,
     .demo-form textarea {
@@ -98,10 +115,12 @@
       font-size: 1rem;
       font-family: inherit;
     }
+
     .demo-form textarea {
       min-height: 100px;
       resize: vertical;
     }
+
     .demo-form button {
       margin-top: 10px;
       padding: 14px;
@@ -112,6 +131,23 @@
       font-size: 1.1rem;
       font-weight: 700;
       cursor: pointer;
+    }
+
+    /* ===== Success Message ===== */
+    .success-message {
+      display: none;
+      background: #e6fffa;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    :target.success-message {
+      display: block;
     }
   </style>
 </head>
@@ -169,10 +205,24 @@
   <!-- DEMO REQUEST -->
   <section class="cta" id="contact">
     <div class="container">
+
       <h2>اطلب عرضًا توضيحيًا</h2>
       <p>دعنا نريك كيف نقلّل خسائرك فعليًا</p>
 
-      <form action="mailto:info@nawah.example" method="POST" enctype="text/plain" class="demo-form">
+      <!-- Success Message -->
+      <div id="success" class="success-message">
+        ✅ تم إرسال طلبك بنجاح  
+        <br/>
+        سنقوم بالتواصل معك قريبًا لعرض توضيحي.
+      </div>
+
+      <!-- Formspree Form -->
+      <form
+        action="https://formspree.io/f/xjgkyjvl"
+        method="POST"
+        class="demo-form"
+      >
+
         <input type="text" name="name" placeholder="الاسم الكامل" required />
         <input type="email" name="email" placeholder="البريد الإلكتروني" required />
         <input type="tel" name="phone" placeholder="رقم الهاتف / واتساب" required />
@@ -188,8 +238,18 @@
 
         <textarea name="message" placeholder="اشرح مشكلتك باختصار (اختياري)"></textarea>
 
+        <input type="hidden" name="_subject" value="طلب Demo جديد — Nawah Control" />
+        <input type="hidden" name="_language" value="ar" />
+        <input
+          type="hidden"
+          name="_redirect"
+          value="https://nawahtkui.github.io/nawah-control/#success"
+        />
+
         <button type="submit">اطلب العرض</button>
+
       </form>
+
     </div>
   </section>
 
