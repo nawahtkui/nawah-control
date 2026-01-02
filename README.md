@@ -29,7 +29,7 @@ It is built for **Yemen, Gulf countries, and similar markets** where:
 - GitHub Pages (hosting)
 
 ## Live Demo
-👉 https://USERNAME.github.io/nawah-control/
+👉 https://nawahtkui.github.io/nawah-control/
 
 ## License
 All rights reserved © Nawah
