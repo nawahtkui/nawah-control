@@ -5,258 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nawah Control — تحكّم بالتجارة الإلكترونية النقدية</title>
 
+  <!-- SEO -->
+  <meta name="description" content="Nawah Control هو نظام تحكّم تشغيلي للتجارة الإلكترونية النقدية (COD) في اليمن والخليج والأسواق العربية، يهدف إلى تقليل خسائر الشحن، الإرجاع، وعدم الدفع." />
+  <meta name="keywords" content="الدفع عند الاستلام, COD, التجارة الإلكترونية, نواة, Nawah Control, مشاكل الشحن, خسائر COD, التجارة في الخليج, التجارة في اليمن" />
+  <meta name="author" content="Nawah" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nawah Control — تحكّم بالتجارة الإلكترونية النقدية" />
+  <meta property="og:description" content="طبقة تحكّم تشغيلي تقلّل خسائر الدفع عند الاستلام والشحن في الأسواق العربية." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nawahtkui.github.io/nawah-control/" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #111;
-      background: #fff;
-      line-height: 1.7;
-    }
+    body{margin:0;font-family:system-ui,sans-serif;line-height:1.7}
+    section{padding:80px 20px}
+    .container{max-width:1100px;margin:auto}
+    h1,h2{font-weight:700}
+    h1{font-size:2.5rem}
+    h2{font-size:2rem}
+    .hero{background:#000;color:#fff;text-align:center}
+    .hero p{color:#ddd}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .box{border:1px solid #eee;border-radius:10px;padding:20px;background:#fafafa}
+    .dark{background:#f5f5f5}
+    .cta{background:#000;color:#fff;text-align:center}
+    footer{text-align:center;padding:30px;color:#777}
 
-    section {
-      padding: 80px 20px;
-    }
+    .demo-form{max-width:500px;margin:30px auto 0;display:flex;flex-direction:column;gap:12px}
+    .demo-form input,.demo-form select,.demo-form textarea{padding:14px;border-radius:8px;border:1px solid #ddd}
+    .demo-form button{padding:14px;border-radius:8px;border:none;font-weight:700}
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h1, h2 {
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.3;
-    }
-
-    h2 {
-      font-size: 2rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #333;
-    }
-
-    ul {
-      padding: 0;
-      list-style: none;
-    }
-
-    li {
-      margin-bottom: 12px;
-      font-size: 1.1rem;
-    }
-
-    .hero {
-      background: #000;
-      color: #fff;
-      text-align: center;
-    }
-
-    .hero p {
-      color: #ddd;
-    }
-
-    .highlight {
-      color: #b00020;
-      font-weight: 600;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .box {
-      border: 1px solid #eee;
-      border-radius: 10px;
-      padding: 20px;
-      background: #fafafa;
-    }
-
-    .dark {
-      background: #f5f5f5;
-    }
-
-    .cta {
-      background: #000;
-      color: #fff;
-      text-align: center;
-    }
-
-    footer {
-      padding: 30px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    /* ===== Demo Request Form ===== */
-    .demo-form {
-      max-width: 500px;
-      margin: 30px auto 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .demo-form input,
-    .demo-form select,
-    .demo-form textarea {
-      padding: 14px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-
-    .demo-form textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    .demo-form button {
-      margin-top: 10px;
-      padding: 14px;
-      border-radius: 8px;
-      border: none;
-      background: #fff;
-      color: #000;
-      font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    /* ===== Success Message ===== */
-    .success-message {
-      display: none;
-      background: #e6fffa;
-      color: #065f46;
-      border: 1px solid #a7f3d0;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      text-align: center;
-    }
-
-    :target.success-message {
-      display: block;
-    }
+    .success-message{display:none;background:#e6fffa;color:#065f46;border:1px solid #a7f3d0;padding:20px;border-radius:10px}
+    :target.success-message{display:block}
   </style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>
-        عندما لا تعمل بوابات الدفع<br/>
-        ولا تكون العناوين واضحة
-      </h1>
-      <p>
-        نواة تعيد التحكّم في التجارة الإلكترونية<br/>
-        في اليمن، الخليج، والأسواق العربية
-      </p>
+<section class="hero">
+  <div class="container">
+    <h1>عندما لا تعمل بوابات الدفع<br>ولا تكون العناوين واضحة</h1>
+    <p>نواة تعيد التحكّم في التجارة الإلكترونية في اليمن والخليج</p>
+    <p><a href="en.html" style="color:#fff;text-decoration:underline">English</a></p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="container">
+    <h2>Nawah Control</h2>
+    <p>Cash-First Commerce Control Layer</p>
+    <div class="grid">
+      <div class="box">🪙 إدارة COD وفشل الدفع</div>
+      <div class="box">⭐ تقييم المخاطر قبل الشحن</div>
+      <div class="box">⚙️ قرارات شحن ذكية</div>
+      <div class="box">📦 تقليل الإرجاع</div>
+      <div class="box">📍 مشاكل العناوين</div>
+      <div class="box">📊 تحكّم تشغيلي</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROBLEM -->
-  <section>
-    <div class="container">
-      <h2>المشكلة ليست البيع… بل ما بعد الطلب</h2>
-      <ul class="grid">
-        <li>❌ فشل بوابات الدفع أو رفض العمليات</li>
-        <li>❌ بطاقات غير مفعّلة أو محدودة</li>
-        <li>❌ عناوين غير واضحة (حتى في الخليج)</li>
-        <li>❌ اعتماد كبير على الدفع عند الاستلام (COD)</li>
-        <li>❌ رفض استلام أو عدم دفع</li>
-        <li>❌ إرجاع وشحنات خاسرة</li>
-      </ul>
-      <p class="highlight">
-        النتيجة: نزيف تشغيلي يتحمّله التاجر وحده
-      </p>
+<section class="cta" id="contact">
+  <div class="container">
+    <h2>اطلب عرضًا توضيحيًا</h2>
+
+    <div id="success" class="success-message">
+      ✅ تم إرسال طلبك بنجاح — سنقوم بالتواصل معك قريبًا
     </div>
-  </section>
 
-  <!-- SOLUTION -->
-  <section class="dark">
-    <div class="container">
-      <h2>Nawah Control</h2>
-      <p>Cash-First Commerce Control Layer</p>
-      <div class="grid">
-        <div class="box">🪙 إدارة COD وفشل الدفع الإلكتروني</div>
-        <div class="box">⭐ تقييم الثقة والمخاطر قبل الشحن</div>
-        <div class="box">⚙️ قرارات شحن ذكية</div>
-        <div class="box">📦 تقليل الإرجاع وعدم الدفع</div>
-        <div class="box">📍 التعامل مع مشاكل العناوين</div>
-        <div class="box">📊 تحكّم تشغيلي كامل للتاجر</div>
-      </div>
-    </div>
-  </section>
+    <form action="https://formspree.io/f/xjgkyjvl" method="POST" class="demo-form">
+      <input name="name" placeholder="الاسم الكامل" required>
+      <input name="email" type="email" placeholder="البريد الإلكتروني" required>
+      <input name="phone" placeholder="الهاتف" required>
+      <input name="country" placeholder="الدولة" required>
+      <input type="text" name="_gotcha" style="display:none">
+      <input type="hidden" name="_redirect" value="https://nawahtkui.github.io/nawah-control/#success">
+      <button type="submit">إرسال</button>
+    </form>
+  </div>
+</section>
 
-  <!-- DEMO REQUEST -->
-  <section class="cta" id="contact">
-    <div class="container">
-
-      <h2>اطلب عرضًا توضيحيًا</h2>
-      <p>دعنا نريك كيف نقلّل خسائرك فعليًا</p>
-
-      <!-- Success Message -->
-      <div id="success" class="success-message">
-        ✅ تم إرسال طلبك بنجاح  
-        <br/>
-        سنقوم بالتواصل معك قريبًا لعرض توضيحي.
-      </div>
-
-      <!-- Formspree Form -->
-      <form
-        action="https://formspree.io/f/xjgkyjvl"
-        method="POST"
-        class="demo-form"
-      >
-
-        <input type="text" name="name" placeholder="الاسم الكامل" required />
-        <input type="email" name="email" placeholder="البريد الإلكتروني" required />
-        <input type="tel" name="phone" placeholder="رقم الهاتف / واتساب" required />
-        <input type="text" name="country" placeholder="الدولة" required />
-
-        <select name="business_type" required>
-          <option value="">نوع النشاط</option>
-          <option>متجر إلكتروني</option>
-          <option>مشروع COD</option>
-          <option>شركة شحن</option>
-          <option>مبادرة / مشروع ناشئ</option>
-        </select>
-
-        <textarea name="message" placeholder="اشرح مشكلتك باختصار (اختياري)"></textarea>
-
-        <input type="hidden" name="_subject" value="طلب Demo جديد — Nawah Control" />
-        <input type="hidden" name="_language" value="ar" />
-        <input
-          type="hidden"
-          name="_redirect"
-          value="https://nawahtkui.github.io/nawah-control/#success"
-        />
-
-        <button type="submit">اطلب العرض</button>
-
-      </form>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Nawah — All rights reserved
-  </footer>
-
+<footer>© 2026 Nawah</footer>
 </body>
 </html>
